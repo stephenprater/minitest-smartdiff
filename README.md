@@ -4,6 +4,10 @@ Have you ever found yourself staring cross-eyed and bewildered at walls of diffs
 
 Well, it's the future, and you don't have to do that anymore.  Let the endlessly patient Robot go looking for the needle in the needle stack.
 
+Minitest::Smartdiff is a minitest plugin that replaces Minitest's (notoriously lacking) diff with an LLM call.  The LLM will read the two values in your assertion, and provide you with a plain english description of what the head-smackingly obvious difference is.
+
+It works with Strings, JSON strings and Ruby primitives that can be serialized to JSON.
+
 ## Installation
 
 Add this line to your application's Gemfile:
