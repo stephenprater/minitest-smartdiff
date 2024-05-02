@@ -1,0 +1,56 @@
+PATH
+  remote: .
+  specs:
+    minitest-smartdiff (0.1.0)
+      ruby-openai (~> 7.0)
+      xxhash (~> 0.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    debug (1.9.2)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
+    event_stream_parser (1.0.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
+    io-console (0.7.2)
+    irb (1.13.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
+    minitest (5.22.3)
+    multipart-post (2.4.0)
+    net-http (0.4.1)
+      uri
+    psych (5.1.2)
+      stringio
+    rake (13.2.1)
+    rdoc (6.6.3.1)
+      psych (>= 4.0.0)
+    reline (0.5.4)
+      io-console (~> 0.5)
+    ruby-openai (7.0.1)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
+    stringio (3.1.0)
+    uri (0.13.0)
+    xxhash (0.5.0)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  bundler (~> 2.5)
+  debug (~> 1.9)
+  minitest (~> 5.0)
+  minitest-smartdiff!
+  rake (~> 13.2)
+
+BUNDLED WITH
+   2.5.3
