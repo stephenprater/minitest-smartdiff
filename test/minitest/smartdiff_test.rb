@@ -135,6 +135,16 @@ class Minitest::SmartdiffTest < Minitest::Test
     DIFF
   end
 
+  def test_multibyte_characters_are_different
+    diff_result = smart_diff do
+      assert_equal 'ώ','ώ'
+    end
+
+    assert_equal <<~DIFF, diff_result
+      1. The expected text contains the Greek letter "omega" (ώ), while the actual text contains the Greek letter "omega with tonos" (ώ).
+    DIFF
+  end
+
   def test_long_and_subtly_different_text
     diff_result = smart_diff do
       diff <<~LAMENT.squish, <<~SLIGHTY_DIFFERENT_LAMENT.squish
@@ -160,6 +170,8 @@ class Minitest::SmartdiffTest < Minitest::Test
     DIFF
   end
 
+  # This test will actually fail and is how you use the module
+  #
   # def test_actual_usage
   #   smart_diff do
   #     assert_equal "Mayonnaise is delicious", "Mayonnaise is disgusting"
