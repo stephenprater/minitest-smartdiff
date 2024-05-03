@@ -137,7 +137,7 @@ class Minitest::SmartdiffTest < Minitest::Test
 
   def test_multibyte_characters_are_different
     diff_result = smart_diff do
-      assert_equal 'ώ','ώ'
+      diff 'ώ','ώ'
     end
 
     assert_equal <<~DIFF, diff_result
@@ -168,6 +168,13 @@ class Minitest::SmartdiffTest < Minitest::Test
       1. The word \"discrepancies\" in the actual text is misspelled as \"discrepencies\".
       2. In the actual text, there is a missing period after \"punctuation\" compared to the expected text.
     DIFF
+  end
+
+  def test_can_reset_model
+    self.class.model 'gpt-4-turbo'
+    assert_equal self.class.model, 'gpt-4-turbo'
+  ensure
+    self.class.model 'gpt-3.5-turbo'
   end
 
   # This test will actually fail and is how you use the module

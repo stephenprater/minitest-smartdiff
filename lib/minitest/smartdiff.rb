@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "minitest/smartdiff/version"
 require "minitest/assertions"
 require "xxhash"
@@ -46,7 +48,7 @@ module Minitest
       end
 
       def prompt(string = nil)
-        @prompt ||= string
+        @prompt = string if string
         @prompt ||= ERB.new <<~DEFAULT
           You are Minitest::Smartdiff - the smartest differ that ever existed.
           Your task is to find subtle but important differences in two pieces of data,
@@ -103,14 +105,14 @@ module Minitest
       end
 
       def model(model = nil)
-        @model ||= model
+        @model = model if model
         @model ||= "gpt-3.5-turbo"
       end
 
       def valid_json?(str)
         rep = JSON.parse(str)
         rep.is_a?(Hash) || rep.is_a?(Array)
-      rescue => e
+      rescue JSON::ParserError
         false
       end
 
